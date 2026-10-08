@@ -1,0 +1,32 @@
+---
+// Eén vast bestand voor één entry. Voor 5 posts = 5 bijna identieke bestanden:
+// volgende les vervangen we dit door src/pages/blog/[id].astro met getStaticPaths().
+// Tot dan geven de links naar de andere posts een 404.
+import { getEntry, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const post = await getEntry('blog', 'mijn-eerste-post');
+// render() geeft de <Content />-component terug: de markdown onder de frontmatter
+const { Content } = await render(post);
+
+const { title, pubDate, readingTime, image, imageAlt } = post.data;
+const displayDate = pubDate.toLocaleDateString('nl-BE', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<BaseLayout title={title}>
+  <article class="c-article">
+    <Image class="c-article__image" src={image} alt={imageAlt} widths={[800, 1200]} sizes="(width >= 48rem) 48rem, 100vw" />
+    <h1 class="c-article__title">{title}</h1>
+    <p class="c-article__meta">
+      <time datetime={pubDate.toISOString().slice(0, 10)}>{displayDate}</time> · {readingTime} min lezen
+    </p>
+
+    <!-- markdown heeft geen classes: de wrapper .c-prose stylet de kale elementen -->
+    <div class="c-prose">
+      <Content />
+    </div>
+
+    <a href="/" class="c-article__back">← Alle posts</a>
+  </article>
+</BaseLayout>

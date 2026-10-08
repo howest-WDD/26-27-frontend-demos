@@ -1,0 +1,17 @@
+@use "../settings/variables" as v;
+
+body {
+  font-family: v.$font-family-base;
+  background-color: v.$color-background;
+  color: v.$color-text;
+  line-height: v.$line-height-base;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: v.$color-accent;
+}

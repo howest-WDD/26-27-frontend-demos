@@ -1,0 +1,31 @@
+@use "../settings/variables" as v;
+
+.c-article {
+  max-width: v.$content-max-width;
+  margin: 0 auto v.$spacing-2xl;
+}
+
+.c-article__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: v.$article-image-ratio;
+  object-fit: cover;
+  border-radius: v.$radius-md;
+  margin-bottom: v.$spacing-lg;
+}
+
+.c-article__title {
+  font-size: v.$font-size-2xl;
+  margin-bottom: v.$spacing-sm;
+}
+
+.c-article__meta {
+  color: v.$color-text-muted;
+  font-size: v.$font-size-sm;
+  margin-bottom: v.$spacing-lg;
+}
+
+.c-article__back {
+  display: inline-block;
+  margin-top: v.$spacing-lg;
+}

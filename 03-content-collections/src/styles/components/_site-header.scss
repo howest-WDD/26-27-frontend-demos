@@ -1,0 +1,46 @@
+@use "../settings/variables" as v;
+@use "../tools/mixins" as m;
+
+.c-site-header {
+  background: v.$color-surface;
+  border-bottom: v.$border-width-thin solid v.$color-border;
+  margin-bottom: v.$spacing-xl;
+}
+
+.c-site-header__inner {
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-sm;
+  padding-block: v.$spacing-md;
+
+  @include m.mq-from(md) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.c-site-header__logo {
+  font-family: v.$font-family-heading;
+  font-size: v.$font-size-lg;
+  font-weight: v.$font-weight-bold;
+  color: v.$color-text;
+  text-decoration: none;
+}
+
+.c-site-header__nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$spacing-md;
+  list-style: none;
+}
+
+.c-site-header__nav-link {
+  color: v.$color-text-muted;
+  text-decoration: none;
+}
+
+.c-site-header__nav-link--active {
+  color: v.$color-accent;
+  font-weight: v.$font-weight-bold;
+}

@@ -1,0 +1,20 @@
+// ITCSS-lagen, van generiek naar specifiek. Settings en Tools laden hier niet mee:
+// enkel de partials die ze nodig hebben @use'n ze rechtstreeks (zie die bestanden).
+
+// 1. Generic
+@use "generic/reset";
+// 2. Elements
+@use "elements/body";
+@use "elements/headings";
+@use "elements/code";
+// 3. Objects
+@use "objects/container";
+// 4. Components
+@use "components/site-header";
+@use "components/section";
+@use "components/featured-list";
+@use "components/post-list";
+@use "components/post-card";
+@use "components/article";
+@use "components/prose";
+@use "components/debug";

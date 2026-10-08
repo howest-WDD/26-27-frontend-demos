@@ -1,0 +1,6 @@
+@use "../settings/variables" as v;
+
+.c-post-list {
+  display: grid;
+  gap: v.$spacing-lg;
+}

@@ -1,0 +1,26 @@
+---
+import { siteTitle, navigation } from '../data/site.js';
+
+// voor de actieve link: vergelijk het huidige pad met de href
+const currentPath = Astro.url.pathname;
+---
+
+<header class="c-site-header">
+  <div class="o-container c-site-header__inner">
+    <a href="/" class="c-site-header__logo">{siteTitle}</a>
+    <nav>
+      <ul class="c-site-header__nav-list">
+        {navigation.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={['c-site-header__nav-link', { 'c-site-header__nav-link--active': item.href === currentPath }]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+
+// 1. ophalen + filteren: de tweede parameter van getCollection() is een filterfunctie
+//    (drafts vallen weg, kijk maar: content-renderen.md staat niet op de pagina)
+// 2. sorteren: een collection heeft geen vaste volgorde, dus sorteren we zelf
+//    (nieuwste eerst: twee Date-objecten aftrekken geeft het verschil in ms)
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate - a.data.pubDate);
+
+// gewone JavaScript op de array die we al hebben
+const featured = posts.filter((post) => post.data.featured);
+---
+
+<BaseLayout>
+  <section class="c-section">
+    <h1 class="c-section__title">Content collections</h1>
+    <p class="c-section__intro">
+      Elke post hieronder is een apart markdown-bestand in <code>src/content/blog/</code>.
+      Een nieuwe post toevoegen = een nieuw <code>.md</code>-bestand, zonder code aan te passen.
+    </p>
+  </section>
+
+  <section class="c-section">
+    <h2 class="c-section__title">Uitgelicht</h2>
+    <ul class="c-featured-list">
+      {featured.map((post) => (
+        <li class="c-featured-list__item">
+          <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="c-section">
+    <h2 class="c-section__title">Alle posts ({posts.length})</h2>
+    <div class="c-post-list">
+      {posts.map((post, index) => (
+        <PostCard {...post.data} href={`/blog/${post.id}/`} reverse={index % 2 === 1} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

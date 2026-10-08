@@ -1,0 +1,15 @@
+@use "../settings/variables" as v;
+
+.c-section {
+  margin-bottom: v.$spacing-2xl;
+}
+
+.c-section__title {
+  font-size: v.$font-size-xl;
+}
+
+.c-section__intro {
+  max-width: v.$content-max-width;
+  color: v.$color-text-muted;
+  margin-bottom: v.$spacing-md;
+}

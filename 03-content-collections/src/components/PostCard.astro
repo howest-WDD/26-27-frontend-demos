@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+
+// krijgt enkel post.data (+ href en reverse) binnen, niet de hele entry:
+// zo weet dit component niets van collections
+// color: 'accent' of 'highlight' (zie z.enum in content.config.js)
+// reverse: beeld rechts i.p.v. links
+const { title, pubDate, description, readingTime, color, level, image, imageAlt, href, reverse = false } = Astro.props;
+
+// pubDate is een echt Date-object dankzij z.coerce.date()
+const isoDate = pubDate.toISOString().slice(0, 10);
+const displayDate = pubDate.toLocaleDateString('nl-BE', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<article class:list={['c-post-card', `c-post-card--${color}`, { 'c-post-card--reverse': reverse }]}>
+  <Image class="c-post-card__image" src={image} alt={imageAlt} widths={[400, 800]} sizes="(width >= 48rem) 40vw, 100vw" />
+  <div class="c-post-card__body">
+    <p class="c-post-card__meta">
+      <time datetime={isoDate}>{displayDate}</time> · {readingTime} min lezen
+    </p>
+    <h3 class="c-post-card__title">
+      <a href={href} class="c-post-card__link">{title}</a>
+    </h3>
+    {description && <p class="c-post-card__description">{description}</p>}
+    <p class="c-post-card__level-label">Niveau: {level}%</p>
+    <div class="c-post-card__bar" style={`--level: ${level}%`}></div>
+  </div>
+</article>

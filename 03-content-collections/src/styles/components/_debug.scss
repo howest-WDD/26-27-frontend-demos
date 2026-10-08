@@ -1,0 +1,12 @@
+@use "../settings/variables" as v;
+
+// enkel voor de demo: de ruwe output van getCollection() tonen
+.c-debug {
+  background: v.$color-debug-background;
+  color: v.$color-debug-text;
+  font-family: v.$font-family-mono;
+  font-size: v.$font-size-sm;
+  padding: v.$spacing-md;
+  border-radius: v.$radius-md;
+  overflow-x: auto;
+}
