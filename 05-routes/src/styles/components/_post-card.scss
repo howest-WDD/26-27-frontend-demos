@@ -1,0 +1,93 @@
+@use "../settings/variables" as v;
+@use "../tools/mixins" as m;
+
+// mobiel: beeld boven de tekst, vanaf md: naast elkaar
+.c-post-card {
+  display: flex;
+  flex-direction: column;
+  background: v.$color-surface;
+  border: v.$border-width-thin solid v.$color-border;
+  border-left: v.$border-width-thick solid var(--post-card-color);
+  border-radius: v.$radius-md;
+  overflow: hidden;
+
+  @include m.mq-from(md) {
+    flex-direction: row;
+  }
+}
+
+// de kleur komt uit de content (color: accent | highlight), via z.enum
+.c-post-card--accent {
+  --post-card-color: #{v.$color-accent};
+}
+
+.c-post-card--highlight {
+  --post-card-color: #{v.$color-highlight};
+}
+
+// beeld rechts: komt uit de positie in de lijst, niet uit de content
+.c-post-card--reverse {
+  @include m.mq-from(md) {
+    flex-direction: row-reverse;
+    border-left-width: v.$border-width-thin;
+    border-right: v.$border-width-thick solid var(--post-card-color);
+  }
+}
+
+.c-post-card__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: v.$post-card-image-ratio;
+  object-fit: cover;
+
+  @include m.mq-from(md) {
+    width: v.$post-card-image-width;
+  }
+}
+
+.c-post-card__body {
+  flex: 1;
+  padding: v.$spacing-lg;
+}
+
+.c-post-card__meta {
+  color: v.$color-text-muted;
+  font-size: v.$font-size-sm;
+  margin-bottom: v.$spacing-sm;
+}
+
+.c-post-card__title {
+  font-size: v.$font-size-lg;
+  margin-bottom: v.$spacing-sm;
+}
+
+.c-post-card__link {
+  color: v.$color-text;
+}
+
+.c-post-card__description {
+  margin-bottom: v.$spacing-md;
+}
+
+.c-post-card__level-label {
+  color: v.$color-text-muted;
+  font-size: v.$font-size-sm;
+  margin-bottom: v.$spacing-xs;
+}
+
+// track van de balk; de breedte van de gevulde balk komt uit de content
+// via de custom property --level (style={`--level: ${level}%`})
+.c-post-card__bar {
+  height: v.$bar-height;
+  background: v.$color-border;
+  border-radius: v.$radius-sm;
+  overflow: hidden;
+}
+
+.c-post-card__bar::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: var(--level, 0%);
+  background: var(--post-card-color);
+}

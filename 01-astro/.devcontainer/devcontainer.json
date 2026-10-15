@@ -1,0 +1,4 @@
+{
+  "name": "Astro (Node 22)",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22"
+}

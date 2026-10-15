@@ -80,7 +80,7 @@ SCSS-partials.
 
 - Geen id-selectors.
 - Geen geneste selectors in components: gebruik `.c-post-card__title`, niet
-  `.c-post-card h3`. Enige uitzondering: `.c-prose` (`components/_prose.scss`), de wrapper rond Markdown-inhoud (`<Content />`), want die HTML heeft geen classes.
+  `.c-post-card h3`. Enige uitzondering: `.c-content` (`components/_content.scss`), de wrapper rond Markdown-inhoud (`<Content />`), want die HTML heeft geen classes.
 - `!important` enkel in Utilities.
 - Specificiteit stijgt enkel geleidelijk doorheen de lagen, van generiek naar
   specifiek.

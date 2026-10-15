@@ -22,8 +22,8 @@ const displayDate = pubDate.toLocaleDateString('nl-BE', { day: 'numeric', month:
       <time datetime={pubDate.toISOString().slice(0, 10)}>{displayDate}</time> · {readingTime} min lezen
     </p>
 
-    <!-- markdown heeft geen classes: de wrapper .c-prose stylet de kale elementen -->
-    <div class="c-prose">
+    <!-- markdown heeft geen classes: de wrapper .c-content stylet de kale elementen -->
+    <div class="c-content">
       <Content />
     </div>
 

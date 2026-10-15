@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = await getCollection('blog');
+---
+
+<BaseLayout title="Wat zit erin?">
+  <section class="c-section">
+    <h1 class="c-section__title">Wat geeft getCollection() terug?</h1>
+    <p class="c-section__intro">
+      Een array, met één object per markdown-bestand: <code>id</code>, <code>data</code>
+      (de frontmatter), <code>body</code> (de markdown eronder) en <code>collection</code>.
+      Let op <code>pubDate</code> (een datum) en <code>image</code> (een object met
+      <code>src</code>, <code>width</code> en <code>height</code>).
+    </p>
+    <pre class="c-debug">{JSON.stringify(posts, null, 2)}</pre>
+  </section>
+</BaseLayout>

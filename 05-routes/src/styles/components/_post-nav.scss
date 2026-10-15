@@ -1,0 +1,22 @@
+@use "../settings/variables" as v;
+
+.c-post-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: v.$spacing-md;
+  padding-top: v.$spacing-lg;
+  margin-top: v.$spacing-xl;
+  border-top: v.$border-width-thin solid v.$color-border;
+}
+
+.c-post-nav__link {
+  color: v.$color-accent;
+  text-decoration: none;
+}
+
+// ook als er geen "vorige" is, staat "volgende" rechts
+.c-post-nav__link--next {
+  margin-left: auto;
+  text-align: right;
+}

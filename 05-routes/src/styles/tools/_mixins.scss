@@ -1,0 +1,11 @@
+@use "sass:map";
+@use "../settings/variables" as v;
+
+// Media queries met de range-syntax, mobile-first.
+// Gebruik: @include m.mq-from(md) { ... }   → vanaf 48rem
+
+@mixin mq-from($breakpoint) {
+  @media (width >= #{map.get(v.$breakpoints, $breakpoint)}) {
+    @content;
+  }
+}

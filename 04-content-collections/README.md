@@ -21,7 +21,7 @@ npm run dev
 | Van entries naar componenten | `src/pages/index.astro` → `src/components/PostCard.astro` |
 | Filteren en sorteren | `src/pages/index.astro` (drafts eruit, nieuwste eerst) |
 | `image()` + `<Image />` | `src/content.config.js`, `PostCard.astro` |
-| `render()` + `.c-prose` | `src/pages/blog/mijn-eerste-post.astro`, `src/styles/components/_prose.scss` |
+| `render()` + `.c-content` | `src/pages/blog/mijn-eerste-post.astro`, `src/styles/components/_content.scss` |
 | Modifier uit je content: `z.enum` | `color` → `c-post-card--accent` / `--highlight` |
 | Waarde uit je content in je CSS | `level` → ``style={`--level: ${level}%`}`` → `_post-card.scss` |
 | Eén pagina per entry? | `src/pages/blog/mijn-eerste-post.astro` |

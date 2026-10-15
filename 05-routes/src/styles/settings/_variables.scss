@@ -1,0 +1,55 @@
+// Kleuren
+$color-background: #fafaf7;
+$color-surface: #fff;
+$color-text: #1d1d1b;
+$color-text-muted: #6b6b66;
+$color-border: #e4e4de;
+$color-accent: #2a9d8f;
+$color-highlight: #c66995;
+$color-code-background: #efefe9;
+$color-debug-background: #1d1d1b;
+$color-debug-text: #e9e9e2;
+
+// Spacing
+$spacing-xs: 0.25rem; // 4px
+$spacing-sm: 0.5rem; // 8px
+$spacing-md: 1rem; // 16px
+$spacing-lg: 1.5rem; // 24px
+$spacing-xl: 2rem; // 32px
+$spacing-2xl: 3rem; // 48px
+
+// Typografie
+$font-family-base: system-ui, sans-serif;
+$font-family-heading: Georgia, serif;
+$font-family-mono: ui-monospace, Menlo, monospace;
+$line-height-base: 1.6;
+$line-height-heading: 1.2;
+$font-weight-bold: 700;
+
+$font-size-sm: 0.875rem; // 14px
+$font-size-md: 1rem; // 16px
+$font-size-lg: 1.25rem; // 20px
+$font-size-xl: 1.75rem; // 28px
+$font-size-2xl: 2.5rem; // 40px
+$font-size-code: 0.9em; // relatief tegenover de omringende tekst
+
+$letter-spacing-wide: 0.0625rem; // 1px
+
+// Randen
+$border-width-thin: 1px;
+$border-width-thick: 4px;
+$radius-sm: 0.25rem; // 4px
+$radius-md: 0.5rem; // 8px
+
+// Afmetingen
+$container-max-width: 60rem; // 960px
+$content-max-width: 45rem; // 720px
+$bar-height: 0.375rem; // 6px
+$post-card-image-width: 40%;
+$post-card-image-ratio: 3 / 2;
+$article-image-ratio: 16 / 9;
+
+// Responsive: mobile-first, gebruik via de mixins in tools/_mixins.scss
+$breakpoints: (
+  md: 48rem, // 768px
+);

@@ -1,0 +1,9 @@
+@use "../settings/variables" as v;
+
+h1,
+h2,
+h3 {
+  font-family: v.$font-family-heading;
+  line-height: v.$line-height-heading;
+  margin-bottom: v.$spacing-md;
+}

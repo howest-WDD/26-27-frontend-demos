@@ -1,0 +1,15 @@
+@use "../settings/variables" as v;
+
+.c-featured-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$spacing-sm;
+  list-style: none;
+}
+
+.c-featured-list__item {
+  background: v.$color-surface;
+  border: v.$border-width-thin solid v.$color-border;
+  border-radius: v.$radius-md;
+  padding: v.$spacing-sm v.$spacing-md;
+}
