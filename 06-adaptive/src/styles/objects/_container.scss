@@ -1,0 +1,8 @@
+@use "../settings/variables" as v;
+
+// centreert content met een maximale breedte, geen kleur of typografie
+.o-container {
+  max-width: v.$container-max-width;
+  margin: 0 auto;
+  padding: 0 v.$spacing-md;
+}

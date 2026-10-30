@@ -1,0 +1,9 @@
+@use "../settings/variables" as v;
+
+code {
+  font-family: v.$font-family-mono;
+  font-size: v.$font-size-code;
+  background: v.$color-code-background;
+  padding: 0 v.$spacing-xs;
+  border-radius: v.$radius-sm;
+}

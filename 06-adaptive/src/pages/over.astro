@@ -1,0 +1,19 @@
+---
+// src/pages/over.astro → /over/
+// een vaste pagina: geen collection, geen getStaticPaths(), gewoon een bestand
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Over">
+  <section class="c-section">
+    <h1 class="c-section__title">Over deze site</h1>
+    <p class="c-section__intro">
+      Een demo bij de slides "Astro routes". Elke pagina in het menu is een bestand in
+      <code>src/pages/</code>; het menu zelf komt uit <code>src/data/site.js</code>.
+    </p>
+    <p class="c-section__intro">
+      Een nieuwe pagina toevoegen: maak een bestand in <code>src/pages/</code>, en zet een
+      regel bij <code>navigation</code> in <code>site.js</code>.
+    </p>
+  </section>
+</BaseLayout>

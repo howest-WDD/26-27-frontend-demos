@@ -1,0 +1,15 @@
+---
+// src/pages/404.astro → wordt 404.html na het bouwen
+// de dev server toont deze pagina bij elke URL die niet bestaat
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Pagina niet gevonden">
+  <section class="c-section">
+    <h1 class="c-section__title">Deze pagina bestaat niet (meer)</h1>
+    <p class="c-section__intro">
+      Misschien is de link verkeerd getypt, of is de post verwijderd.
+    </p>
+    <a href="/" class="c-section__more">← Terug naar de homepage</a>
+  </section>
+</BaseLayout>

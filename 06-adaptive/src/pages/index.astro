@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+
+// drafts eruit, nieuwste eerst (zie de demo van les 04)
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate - a.data.pubDate);
+
+const featured = posts.filter((post) => post.data.featured);
+// de home toont enkel de 2 nieuwste posts, de rest staat op /blog/
+const latest = posts.slice(0, 2);
+---
+
+<BaseLayout>
+  <section class="c-section">
+    <h1 class="c-section__title">Astro routes</h1>
+    <p class="c-section__intro">
+      Elk bestand in <code>src/pages/</code> is een pagina. De detailpagina's van de
+      posts komen allemaal uit één bestand: <code>src/pages/blog/[id].astro</code>.
+    </p>
+  </section>
+
+  <section class="c-section">
+    <h2 class="c-section__title">Uitgelicht</h2>
+    <ul class="c-featured-list">
+      {featured.map((post) => (
+        <li class="c-featured-list__item">
+          <!-- dezelfde post.id als in params van getStaticPaths() -->
+          <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="c-section">
+    <h2 class="c-section__title">Nieuwste posts</h2>
+    <div class="c-post-list">
+      {latest.map((post, index) => (
+        <PostCard {...post.data} href={`/blog/${post.id}/`} reverse={index % 2 === 1} />
+      ))}
+    </div>
+    <a href="/blog/" class="c-section__more">Alle posts →</a>
+  </section>
+</BaseLayout>
